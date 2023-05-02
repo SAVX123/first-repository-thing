@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+	print_title();
+
+	int game_state;
+	int input;
+
+	while(game_state){
+		int tutorial_state = 1;
+		int tutorial_input = 0;
+		printf("input(1-3)>");
+		scanf("%d",&input);
+		if (input == 3){
+			game_state = 0;
+		}
+		else if (input == 2){
+			tutorial();
+			while(tutorial_state){
+				printf("Return to menu?\n1.Yes\n2.No\n>>>");
+				scanf("%d", &tutorial_input);
+				
+				if (tutorial_input == 1){
+					tutorial_state = 0;
+					print_title();
+				}
+
+				else if (tutorial_input == 2){
+					tutorial();
+				}
+				else {
+					printf("\n\n!!!Wrong Number!!!\nType 1 or 2\n\n");
+				}
+			}
+		}
+	}
+	return 0;
+
+}
